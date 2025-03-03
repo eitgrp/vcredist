@@ -18,7 +18,7 @@ param (
 try {
     Import-Module VcRedist
 } CATCH {
-    Iwr -uri "https://github.com/eitgrp/vcredist/Install-VCRedist.ps1 | Iex
+    Iwr -uri "https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1" | Iex
     Import-Module-VcRedist
 }
 
