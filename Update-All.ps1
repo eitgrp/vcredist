@@ -15,6 +15,13 @@ param (
     [System.String] $Path = "$env:Temp\VcRedist-Files"
 )
 
+try {
+    Import-Module VcRedist
+} CATCH {
+    Iwr -uri "https://github.com/eitgrp/vcredist/Install-VCRedist.ps1 | Iex
+    Import-Module-VcRedist
+}
+
 #region tasks/install apps
 Write-Host "Saving VcRedists to path: $Path."
 New-Item -Path $Path -ItemType "Directory" -Force -ErrorAction "SilentlyContinue" > $null
