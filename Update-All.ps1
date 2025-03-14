@@ -18,7 +18,7 @@ param (
 try {
     Import-Module VcRedist
 } CATCH {
-    Iwr -uri "https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1" | Iex
+    STart-Process Powershell.exe -args '-Command "Iwr -uri `"https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1`" | Iex"' -wait
     Import-Module-VcRedist
 }
 
