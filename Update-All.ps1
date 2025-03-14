@@ -15,9 +15,9 @@ param (
     [System.String] $Path = "$env:Temp\VcRedist-Files"
 )
 
-try {
+if (Get-InstalledModule VcRedist) {
     Import-Module VcRedist
-} CATCH {
+} ELSE {
     STart-Process Powershell.exe -args '-Command "Iwr -uri `"https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1`" | Iex"' -wait
     Import-Module-VcRedist
 }
