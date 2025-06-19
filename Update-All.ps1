@@ -18,8 +18,8 @@ param (
 TRY {
     Import-Module VcRedist
 } CATCH {
-    STart-Process Powershell.exe -args '-Command "Iwr -uri `"https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1`" | Iex"' -wait
-    Import-Module-VcRedist
+    Start-Process Powershell.exe -args '-Command "Iwr -uri `"https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1`" | Iex"' -wait
+    Import-Module "C:\source\Modules\vcredist\VcRedist.psm1"
 }
 
 #region tasks/install apps
