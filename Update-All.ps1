@@ -15,11 +15,12 @@ param (
     [System.String] $Path = "$env:Temp\VcRedist-Files"
 )
 
-TRY {
-    Import-Module VcRedist
-} CATCH {
+$Module = Get-Module VcRedist
+if (!$Module) {
     Start-Process Powershell.exe -args '-Command "Iwr -uri `"https://raw.githubusercontent.com/eitgrp/vcredist/refs/heads/main/Install-VCRedist.ps1`" | Iex"' -wait
     Import-Module "C:\source\Modules\vcredist\VcRedist.psm1"
+} ELSE {
+    Import-Module VcRedist
 }
 
 #region tasks/install apps
